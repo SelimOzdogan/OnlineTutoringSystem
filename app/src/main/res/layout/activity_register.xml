@@ -9,28 +9,26 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/input_group"
-        android:layout_alignParentTop="true"
+        android:orientation="vertical"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:gravity="center"
-        android:orientation="vertical">
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/input_group">
 
         <ImageView
             android:id="@+id/imageViewLogo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             app:srcCompat="@mipmap/logo" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
-            android:text="SIGN IN"
+            android:text="SIGN UP"
             android:textColor="#FFFFFF"
-            android:textSize="20sp" />
-
+            android:textSize="20sp"/>
 
     </LinearLayout>
 
@@ -39,60 +37,74 @@
         android:id="@+id/input_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginBottom="50dp"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
 
+        <EditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_top"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:padding="15dp" />
 
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/edit_text_top"
+            android:background="@drawable/edit_text_middle"
             android:hint="Email"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:padding="15dp" />
 
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/edit_text_bottom"
+            android:background="@drawable/edit_text_middle"
             android:hint="Password"
             android:inputType="textPassword"
-            android:padding="15dp" />
+            android:padding="15dp"/>
+        <EditText
+            android:id="@+id/editTextCnfPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_middle"
+            android:hint="Re-Confirm Password"
+            android:inputType="textPassword"
+            android:padding="15dp"/>
 
 
         <Button
-            android:id="@+id/buttonLogin"
+            android:id="@+id/buttonRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/button"
             android:foreground="?android:attr/selectableItemBackground"
-            android:text="SIGN IN"
+            android:text="SIGN UP"
             android:textAllCaps="false"
             android:textColor="#3A3985"
             android:textSize="17sp"
             app:backgroundTint="#BEBDBD" />
 
         <TextView
-            android:id="@+id/textViewRegister"
+            android:id="@+id/textViewLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:fontFamily="sans-serif"
             android:padding="10dp"
-            android:text="Don't Have an Account?  Sign Up"
+            android:text="Already Have an Account?  Sign in"
             android:textAllCaps="true"
-            android:textColor="@color/white"
             android:textSize="13dp"
-            android:textStyle="bold" />
-
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif"/>
 
     </LinearLayout>
-
 </RelativeLayout>
