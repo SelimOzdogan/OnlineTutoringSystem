@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
                 User user = db.getUser(email, password);
                 if (user != null) {
-                    Intent i = new Intent(MainActivity.this, HomeActivity.class);
+                    Intent i = new Intent(MainActivity.this, ListActivity.class);
                     i.putExtra("User", user);
                     startActivity(i);
                     finish();
