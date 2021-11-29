@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sky_blue"
+    android:padding="10dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            android:elevation="5dp">
+
+            <androidx.appcompat.widget.SearchView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1" />
+
+            <Spinner
+                android:id="@+id/spinner_course"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:elevation="5dp"
+                android:background="@color/off_white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sortView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:elevation="5dp">
+
+            <Spinner
+                android:id="@+id/spinner_price"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:prompt="@string/course_price"
+                android:background="@color/off_white"
+                android:elevation="5dp"
+                android:textColor="#8C8A8A"
+                android:entries="@array/spinner_price"/>
+
+            <Spinner
+                android:id="@+id/spinner_country"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:prompt="@string/"
+                android:background="@color/off_white"
+                android:elevation="5dp"
+                android:textColor="#8C8A8A"
+                android:entries="@array/spinner_country"/>
+
+            <Spinner
+                android:id="@+id/spinner_available"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@color/off_white"
+                android:elevation="5dp"
+                android:text="Availability"
+                android:textColor="#8C8A8A"
+                android:entries="@array/spinner_available"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:layout_below="@+id/searchView"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:contextClickable="true"
+            tools:listitem="@layout/activity_list"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
