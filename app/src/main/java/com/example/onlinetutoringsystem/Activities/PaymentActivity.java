@@ -73,7 +73,7 @@ public class PaymentActivity extends AppCompatActivity {
                 i.putExtra("USER", user);
 
                 startActivity(i);
-                finish();
+//                finish();
             } else {
                 Toast.makeText(PaymentActivity.this,
                         "You need to accept the conditions", Toast.LENGTH_SHORT).show();

@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.onlinetutoringsystem.Model.Instructor;
@@ -15,12 +16,15 @@ import com.example.onlinetutoringsystem.R;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class ScheduleActivity extends AppCompatActivity {
     Button button10, button11, button12, button14, button16, button19;
     CalendarView calendarView2;
     User user;
     Instructor instructor;
+    Date selectedDate;
+    Calendar calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,15 @@ public class ScheduleActivity extends AppCompatActivity {
         button19 = findViewById(R.id.buttonTime6);
 
         calendarView2 = findViewById(R.id.calendarView2);
+        calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(calendarView2.getDate());
+        selectedDate = calendar.getTime();
+        calendarView2.setOnDateChangeListener((@NonNull CalendarView calendarView, int i, int i1, int i2) -> {
+            calendar.set(Calendar.YEAR, i);
+            calendar.set(Calendar.MONTH, i1);
+            calendar.set(Calendar.DAY_OF_MONTH, i2);
+            selectedDate = calendar.getTime();
+        });
 
         button10.setOnClickListener((View view) -> {
             try {
@@ -91,14 +104,15 @@ public class ScheduleActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    private String getFormattedDateTime(String time) {
-        long date = calendarView2.getDate();
+    private String getFormattedDateTime(String time) throws ParseException {
+        String[] timeInArray = time.split(":");
         Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(date);
-        int Year = calendar.get(Calendar.YEAR);
-        int Month = calendar.get(Calendar.MONTH);
-        int Day = calendar.get(Calendar.DAY_OF_MONTH);
-        String finalDate = Year + "/" + Month + "/" + Day + " " + time;
-        return  finalDate;
+        calendar.setTimeInMillis(selectedDate.getTime());
+        calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(timeInArray[0]));
+        calendar.set(Calendar.MINUTE, Integer.parseInt(timeInArray[1]));
+
+        selectedDate = calendar.getTime();
+
+        return new SimpleDateFormat("yyyy/MM/dd hh:mm").format(selectedDate.getTime());
     }
 }
