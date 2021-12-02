@@ -56,7 +56,7 @@ public class PaymentActivity extends AppCompatActivity {
 
         btnPaymentPay.setOnClickListener((View view) -> {
             Transaction transaction = new Transaction(userID, courseID, total);
-            db.transactionDao().insert(transaction);
+            db.gettransactionDao().insert(transaction);
         });
     }
 
