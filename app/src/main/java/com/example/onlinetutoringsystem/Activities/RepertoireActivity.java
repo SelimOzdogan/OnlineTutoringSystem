@@ -1,9 +1,10 @@
-package com.example.onlinetutoringsystem;
+package com.example.onlinetutoringsystem.Activities;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.onlinetutoringsystem.R;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
 public class RepertoireActivity extends AppCompatActivity {

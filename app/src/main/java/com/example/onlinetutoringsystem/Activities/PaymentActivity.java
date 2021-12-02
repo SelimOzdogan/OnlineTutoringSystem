@@ -1,4 +1,4 @@
-package com.example.onlinetutoringsystem;
+package com.example.onlinetutoringsystem.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -16,6 +16,7 @@ import java.util.Date;
 
 import com.example.onlinetutoringsystem.Data.UserDatabase;
 import com.example.onlinetutoringsystem.Model.Transaction;
+import com.example.onlinetutoringsystem.R;
 
 public class PaymentActivity extends AppCompatActivity {
     private static final Double COMMISSIONRATE = 0.2;

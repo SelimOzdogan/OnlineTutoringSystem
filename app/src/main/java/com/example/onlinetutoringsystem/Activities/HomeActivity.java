@@ -1,4 +1,4 @@
-package com.example.onlinetutoringsystem;
+package com.example.onlinetutoringsystem.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import com.example.onlinetutoringsystem.Model.Instructor;
-import com.example.onlinetutoringsystem.Model.User;
+import com.example.onlinetutoringsystem.R;
+import com.example.onlinetutoringsystem.RecyclerAdapter;
 
 import java.util.ArrayList;
 

@@ -12,28 +12,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineTutoringSystem">
         <activity
-            android:name=".CommunicationActivity"
+            android:name=".Activities.CommunicationActivity"
             android:exported="false" />
         <activity
-            android:name=".ScheduleActivity"
+            android:name=".Activities.ScheduleActivity"
             android:exported="false" />
         <activity
-            android:name=".RepertoireActivity"
+            android:name=".Activities.RepertoireActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".Activities.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".PaymentActivity"
+            android:name=".Activities.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".Activities.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".Activities.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
