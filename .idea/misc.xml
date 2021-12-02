@@ -9,10 +9,15 @@
         <entry key="..\:/Courses/CSIS-3275 Software Engineering/Project/OnlineTutoringSystem/app/src/main/res/layout/activity_main.xml" value="0.3546875" />
         <entry key="..\:/Courses/CSIS-3275 Software Engineering/Project/OnlineTutoringSystem/app/src/main/res/layout/activity_register.xml" value="0.3546875" />
         <entry key="..\:/Courses/CSIS-3275 Software Engineering/Project/OnlineTutoringSystem/app/src/main/res/layout/layout.xml" value="0.340625" />
+        <entry key="..\:/Users/selim/OneDrive - Douglas College/Desktop/DCI/Courses/2-1/CSIS 3275/Project/OTS/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Users/selim/OneDrive - Douglas College/Desktop/DCI/Courses/2-1/CSIS 3275/Project/OTS/app/src/main/res/layout/activity_list.xml" value="0.25" />
+        <entry key="..\:/Users/selim/OneDrive - Douglas College/Desktop/DCI/Courses/2-1/CSIS 3275/Project/OTS/app/src/main/res/layout/activity_main.xml" value="0.19782168186423504" />
+        <entry key="..\:/Users/selim/OneDrive - Douglas College/Desktop/DCI/Courses/2-1/CSIS 3275/Project/OTS/app/src/main/res/layout/activity_payment.xml" value="0.1" />
+        <entry key="..\:/Users/selim/OneDrive - Douglas College/Desktop/DCI/Courses/2-1/CSIS 3275/Project/OTS/app/src/main/res/layout/activity_register.xml" value="0.19782168186423504" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

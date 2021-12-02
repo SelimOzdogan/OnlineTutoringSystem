@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">OnlineTutoringSystem</string>
+
+    <string name="txtWalletViewTitle">My Wallet</string>
+    <string name="btnWalletDeposit">Deposit</string>
+    <string name="btnWalletWithDraw">WithDraw</string>
+    <string name="txtWalletBalance">Balance:</string>
+    <string name="DollarSign">$</string>
+    <string name="checkBoxPaymentAgree">I agree to the termand condition</string>
+
 </resources>
