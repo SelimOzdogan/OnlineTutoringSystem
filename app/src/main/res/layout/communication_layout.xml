@@ -65,12 +65,12 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonWhatsapp" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonCommunicationSchedule"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="69dp"
-        android:text="pay now!"
-        app:backgroundTint="#bd1e1e"
+        android:text="Schedule"
+        app:backgroundTint="#376EC9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />

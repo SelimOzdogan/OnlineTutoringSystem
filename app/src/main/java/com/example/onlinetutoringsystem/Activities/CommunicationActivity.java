@@ -8,22 +8,26 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.onlinetutoringsystem.Model.User;
 import com.example.onlinetutoringsystem.R;
 
 public class CommunicationActivity extends AppCompatActivity {
-    Button btnWhatsapp, btnViber, btnZoom, button4;
+    Button btnWhatsapp, btnViber, btnZoom, buttonCommunicationSchedule;
     TextView textViewSelectedApp;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.communication_layout);
 
+        user = (User) getIntent().getSerializableExtra("User");
+
         btnWhatsapp = findViewById(R.id.buttonWhatsapp);
         btnViber = findViewById(R.id.buttonViber);
         btnZoom = findViewById(R.id.buttonZoom);
         textViewSelectedApp = findViewById(R.id.textViewAppSelected);
-        button4 = findViewById(R.id.button4);
+        buttonCommunicationSchedule = findViewById(R.id.buttonCommunicationSchedule);
 
         btnWhatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,11 +50,11 @@ public class CommunicationActivity extends AppCompatActivity {
             }
         });
 
-        button4.setOnClickListener(new View.OnClickListener() {
+        buttonCommunicationSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(CommunicationActivity.this, PaymentActivity.class);
-//                i.putExtra("User", user);
+                Intent i = new Intent(CommunicationActivity.this, ScheduleActivity.class);
+                i.putExtra("User", user);
                 startActivity(i);
             }
         });

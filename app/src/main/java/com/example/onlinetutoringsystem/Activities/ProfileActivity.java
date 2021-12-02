@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.onlinetutoringsystem.Model.User;
 import com.example.onlinetutoringsystem.R;
 
 
@@ -19,10 +20,14 @@ public class ProfileActivity extends AppCompatActivity {
     String profileName = "";
     String profileMajor = "";
     int profileImage;
+    User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_layout);
+
+        user = (User) getIntent().getSerializableExtra("User");
 
         textProfileName = findViewById(R.id.textViewProfileName);
         textProfileMajor = findViewById(R.id.textViewProfileMajor);
@@ -52,6 +57,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(ProfileActivity.this, ScheduleActivity.class);
+                i.putExtra("User", user);
                 startActivity(i);
             }
         });
@@ -60,6 +66,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(ProfileActivity.this, CommunicationActivity.class);
+                i.putExtra("User", user);
                 startActivity(i);
             }
         });

@@ -16,6 +16,7 @@ import java.util.Date;
 
 import com.example.onlinetutoringsystem.Data.UserDatabase;
 import com.example.onlinetutoringsystem.Model.Transaction;
+import com.example.onlinetutoringsystem.Model.User;
 import com.example.onlinetutoringsystem.R;
 
 public class PaymentActivity extends AppCompatActivity {
@@ -30,7 +31,7 @@ public class PaymentActivity extends AppCompatActivity {
                 .allowMainThreadQueries()
                 .build();
 
-        String userID = getIntent().getExtras().getString("USERID");
+        User user = (User)getIntent().getSerializableExtra("User");
         String courseID = getIntent().getExtras().getString("COURSEID");
 
         Date coursedatetime = null;
@@ -51,12 +52,12 @@ public class PaymentActivity extends AppCompatActivity {
         CheckBox checkBoxPaymentAgree = findViewById(R.id.checkBoxPaymentAgree);
         Button btnPaymentPay = findViewById(R.id.btnPaymentPay);
 
-        textViewPaymentUserInfo.setText(getUserInfo(userID));
+        textViewPaymentUserInfo.setText(user.getUserName());
         textViewPaymentDateTime.setText(getDateInfo(coursedatetime));
         textViewPaymentDetails.setText(getPaymentDetail(price, commission));
 
         btnPaymentPay.setOnClickListener((View view) -> {
-            Transaction transaction = new Transaction(userID, courseID, total);
+            Transaction transaction = new Transaction(String.valueOf(user.getId()), courseID, total);
             db.gettransactionDao().insert(transaction);
         });
     }
@@ -81,10 +82,5 @@ public class PaymentActivity extends AppCompatActivity {
         outputText.append(dateTimeFormatter.format(coursedatetime));
 //        outputText.append(String.format("%-30s%15s\n", "Transaction fee", df.format((double) price * 0.02)));
         return outputText.toString();
-    }
-
-    private String getUserInfo(String userID) {
-        return "Name" + "Rating";
-
     }
 }
