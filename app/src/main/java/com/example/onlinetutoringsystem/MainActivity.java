@@ -3,7 +3,6 @@ package com.example.onlinetutoringsystem;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
                 User user = db.getUser(email, password);
                 if (user != null) {
-                    Intent i = new Intent(MainActivity.this, ListActivity.class);
+                    Intent i = new Intent(MainActivity.this, HomeActivity.class);
                     i.putExtra("User", user);
                     startActivity(i);
                     finish();
