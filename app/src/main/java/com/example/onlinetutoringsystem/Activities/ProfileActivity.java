@@ -71,6 +71,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(ProfileActivity.this, CommunicationActivity.class);
                 i.putExtra("User", user);
+                i.putExtra("Instructor", instructor);
                 startActivity(i);
             }
         });

@@ -5,6 +5,7 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -36,8 +37,8 @@ public class PaymentActivity extends AppCompatActivity {
                 .build();
         TransactionDao transactionDao = db.gettransactionDao();
 
-        User user = (User)getIntent().getSerializableExtra("User");
-        Instructor instructor = (Instructor)getIntent().getSerializableExtra("Instructor");
+        User user = (User) getIntent().getSerializableExtra("User");
+        Instructor instructor = (Instructor) getIntent().getSerializableExtra("Instructor");
 //        String courseID = getIntent().getExtras().getString("COURSEID");
 
         Date coursedatetime = null;
@@ -48,7 +49,7 @@ public class PaymentActivity extends AppCompatActivity {
         }
 
         Double price, commission = 0.0;
-        price =instructor.getPrice();
+        price = instructor.getPrice();
         commission = price * COMMISSIONRATE;
         final Double total = price + commission;
 
@@ -70,10 +71,9 @@ public class PaymentActivity extends AppCompatActivity {
                         "Payment is successfull", Toast.LENGTH_SHORT).show();
 
                 Intent i = new Intent(PaymentActivity.this, FinishActivity.class);
-                i.putExtra("USER", user);
+                i.putExtra("User", user);
 
                 startActivity(i);
-//                finish();
             } else {
                 Toast.makeText(PaymentActivity.this,
                         "You need to accept the conditions", Toast.LENGTH_SHORT).show();

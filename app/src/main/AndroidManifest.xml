@@ -27,6 +27,9 @@
             android:name=".Activities.PaymentActivity"
             android:exported="false" />
         <activity
+            android:name=".Activities.FinishActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.RegisterActivity"
             android:exported="false" />
         <activity
