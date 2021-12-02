@@ -3,18 +3,22 @@ package com.example.onlinetutoringsystem.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.example.onlinetutoringsystem.Data.TransactionDao;
 import com.example.onlinetutoringsystem.Data.UserDatabase;
+import com.example.onlinetutoringsystem.Model.Instructor;
 import com.example.onlinetutoringsystem.Model.Transaction;
 import com.example.onlinetutoringsystem.Model.User;
 import com.example.onlinetutoringsystem.R;
@@ -30,19 +34,21 @@ public class PaymentActivity extends AppCompatActivity {
         UserDatabase db = Room.databaseBuilder(this, UserDatabase.class, "mi-database.db")
                 .allowMainThreadQueries()
                 .build();
+        TransactionDao transactionDao = db.gettransactionDao();
 
         User user = (User)getIntent().getSerializableExtra("User");
-        String courseID = getIntent().getExtras().getString("COURSEID");
+        Instructor instructor = (Instructor)getIntent().getSerializableExtra("Instructor");
+//        String courseID = getIntent().getExtras().getString("COURSEID");
 
         Date coursedatetime = null;
         try {
-            coursedatetime = new SimpleDateFormat("MM/dd/yyyy hh:hh").parse(getIntent().getExtras().getString("COURSEDATETIME"));
+            coursedatetime = new SimpleDateFormat("yyyy/MM/dd hh:mm").parse(getIntent().getExtras().getString("COURSEDATETIME"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
         Double price, commission = 0.0;
-        price = Double.parseDouble(getIntent().getExtras().getString("PRICE"));
+        price =instructor.getPrice();
         commission = price * COMMISSIONRATE;
         final Double total = price + commission;
 
@@ -57,8 +63,21 @@ public class PaymentActivity extends AppCompatActivity {
         textViewPaymentDetails.setText(getPaymentDetail(price, commission));
 
         btnPaymentPay.setOnClickListener((View view) -> {
-            Transaction transaction = new Transaction(String.valueOf(user.getId()), courseID, total);
-            db.gettransactionDao().insert(transaction);
+            if (checkBoxPaymentAgree.isChecked()) {
+                Transaction transaction = new Transaction(String.valueOf(user.getId()), instructor.getInstructorId(), total);
+                transactionDao.insert(transaction);
+                Toast.makeText(PaymentActivity.this,
+                        "Payment is successfull", Toast.LENGTH_SHORT).show();
+
+                Intent i = new Intent(PaymentActivity.this, FinishActivity.class);
+                i.putExtra("USER", user);
+
+                startActivity(i);
+                finish();
+            } else {
+                Toast.makeText(PaymentActivity.this,
+                        "You need to accept the conditions", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 

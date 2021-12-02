@@ -13,6 +13,7 @@ import com.example.onlinetutoringsystem.Model.User;
 import com.example.onlinetutoringsystem.R;
 import com.example.onlinetutoringsystem.RecyclerAdapter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
@@ -43,8 +44,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onclick(View v, int position) {
                 Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-                intent.putExtra("profile_name", instructor.get(position).getInstructorName());
-                intent.putExtra("profile_major", instructor.get(position).getInstructorMajor());
+                intent.putExtra("Instructor", instructor.get(position));
                 intent.putExtra("User", user);
                 startActivity(intent);
             }
@@ -54,14 +54,14 @@ public class HomeActivity extends AppCompatActivity {
     private ArrayList<Instructor> instructors() {
         ArrayList<Instructor> instructor = new ArrayList<>();
 
-        instructor.add(new Instructor("Alan Taylor", "Film Scoring"));
-        instructor.add(new Instructor("Michael Gregg", "Music Theory"));
-        instructor.add(new Instructor("Tass Pete", "Songwriting"));
-        instructor.add(new Instructor("David Mai", "Music Composition"));
-        instructor.add(new Instructor("Berkley Hill", "Music Production"));
-        instructor.add(new Instructor("Alex Oscar", "Sound Engineering"));
-        instructor.add(new Instructor("Tommy Nguyen", "Jazz Composition"));
-        instructor.add(new Instructor("Joe Pass", "String Instrument"));
+        instructor.add(new Instructor("1","Alan Taylor", "Film Scoring",20.0));
+        instructor.add(new Instructor("2","Michael Gregg", "Music Theory",25.0));
+        instructor.add(new Instructor("3","Tass Pete", "Songwriting",30.0));
+        instructor.add(new Instructor("4","David Mai", "Music Composition",20.0));
+        instructor.add(new Instructor("5","Berkley Hill", "Music Production",15.0));
+        instructor.add(new Instructor("6","Alex Oscar", "Sound Engineering",18.0));
+        instructor.add(new Instructor("7","Tommy Nguyen", "Jazz Composition",22.0));
+        instructor.add(new Instructor("8","Joe Pass", "String Instrument",20.0));
 
         return instructor;
     }

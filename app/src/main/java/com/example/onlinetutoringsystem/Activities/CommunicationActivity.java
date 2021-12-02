@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.onlinetutoringsystem.Model.Instructor;
 import com.example.onlinetutoringsystem.Model.User;
 import com.example.onlinetutoringsystem.R;
 
@@ -15,6 +16,7 @@ public class CommunicationActivity extends AppCompatActivity {
     Button btnWhatsapp, btnViber, btnZoom, buttonCommunicationSchedule;
     TextView textViewSelectedApp;
     User user;
+    Instructor instructor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public class CommunicationActivity extends AppCompatActivity {
         setContentView(R.layout.communication_layout);
 
         user = (User) getIntent().getSerializableExtra("User");
+        instructor = (Instructor) getIntent().getSerializableExtra("Instructor");
 
         btnWhatsapp = findViewById(R.id.buttonWhatsapp);
         btnViber = findViewById(R.id.buttonViber);
@@ -55,6 +58,7 @@ public class CommunicationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(CommunicationActivity.this, ScheduleActivity.class);
                 i.putExtra("User", user);
+                i.putExtra("Instructor", instructor);
                 startActivity(i);
             }
         });

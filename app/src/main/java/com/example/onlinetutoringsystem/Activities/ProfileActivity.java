@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.onlinetutoringsystem.Model.Instructor;
 import com.example.onlinetutoringsystem.Model.User;
 import com.example.onlinetutoringsystem.R;
 
@@ -17,10 +18,11 @@ public class ProfileActivity extends AppCompatActivity {
     TextView textProfileName, textProfileMajor;
     ImageView imageProfileAva;
     Button buttonProfileRepertoire, buttonProfileSchedule, buttonMeet;
-    String profileName = "";
-    String profileMajor = "";
+//    String profileName = "";
+//    String profileMajor = "";
     int profileImage;
     User user;
+    Instructor instructor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.profile_layout);
 
         user = (User) getIntent().getSerializableExtra("User");
+        instructor = (Instructor) getIntent().getSerializableExtra("Instructor");
 
         textProfileName = findViewById(R.id.textViewProfileName);
         textProfileMajor = findViewById(R.id.textViewProfileMajor);
@@ -36,14 +39,14 @@ public class ProfileActivity extends AppCompatActivity {
         buttonProfileSchedule = findViewById(R.id.buttonProfileSchedule);
         buttonMeet = findViewById(R.id.buttonMeetNow);
 
-        Bundle extras = getIntent().getExtras();
-        if(extras != null) {
-            profileName = extras.getString("profile_name");
-            profileMajor = extras.getString("profile_major");
-        }
+//        Bundle extras = getIntent().getExtras();
+//        if(extras != null) {
+//            profileName = extras.getString("profile_name");
+//            profileMajor = extras.getString("profile_major");
+//        }
 
-        textProfileName.setText(profileName);
-        textProfileMajor.setText(profileMajor);
+        textProfileName.setText(instructor.getInstructorName());
+        textProfileMajor.setText(instructor.getInstructorMajor());
 
         buttonProfileRepertoire.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +61,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(ProfileActivity.this, ScheduleActivity.class);
                 i.putExtra("User", user);
+                i.putExtra("Instructor", instructor);
                 startActivity(i);
             }
         });
