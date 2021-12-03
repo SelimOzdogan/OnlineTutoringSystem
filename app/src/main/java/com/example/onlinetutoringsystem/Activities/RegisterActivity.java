@@ -1,8 +1,10 @@
+app/src/main/java/com/example/onlinetutoringsystem/Activities/RegisterActivity.java
 package com.example.onlinetutoringsystem.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,16 +13,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.onlinetutoringsystem.Data.UserDao;
-import com.example.onlinetutoringsystem.Data.UserDatabase;
-import com.example.onlinetutoringsystem.Model.User;
-import com.example.onlinetutoringsystem.R;
-
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity implements ObservationView{
     EditText editTextUsername, editTextEmail, editTextPassword, editTextCnfPassword;
     Button buttonRegister;
     TextView textViewLogin;
-    private UserDao userDao;
+    private UserDAO userDao;
+    Service service;
+    String errormessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +45,12 @@ public class RegisterActivity extends AppCompatActivity {
                 .allowMainThreadQueries()
                 .build().getUserDao();
 
+        service = new Service(this,userDao);
+
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                service.OnClick();
                 String userName = editTextUsername.getText().toString().trim();
                 String email = editTextEmail.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
@@ -68,5 +70,66 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public String getUsername() {
+        return editTextUsername.getText().toString();
+    }
+
+    @Override
+    public String getEmail() {
+        return editTextEmail.getText().toString();
+    }
+
+    @Override
+    public String getPassword() {
+        return editTextPassword.getText().toString();
+    }
+
+    @Override
+    public String getPasswordConf() {
+        return editTextCnfPassword.getText().toString();
+    }
+
+    @Override
+    public Context getContext() {
+        return getApplicationContext();
+    }
+
+    @Override
+    public String showNullError() {
+        errormessage = "No input provided";
+        return errormessage;
+    }
+
+    @Override
+    public String showEmptyStringError() {
+        errormessage = "User provided whitespace values";
+        return errormessage;
+    }
+
+    @Override
+    public String showPassNotMatch() {
+        errormessage = "Password is not matching";
+        return errormessage;
+    }
+
+    @Override
+    public String showRegisteredSuccess() {
+        errormessage = "User Registration Success";
+        return errormessage;
+    }
+
+    @Override
+    public String showNotRegistered() {
+        errormessage = "Database is null reference";
+        return errormessage;
+    }
+
+    @Override
+    public String showNoRecordFound() {
+        errormessage = "Database is not empty";
+        return errormessage;
     }
 }
