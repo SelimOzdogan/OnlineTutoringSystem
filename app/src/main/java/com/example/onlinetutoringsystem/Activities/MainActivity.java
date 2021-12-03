@@ -1,8 +1,5 @@
 package com.example.onlinetutoringsystem.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,14 +8,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
+
 import com.example.onlinetutoringsystem.Data.InstructorDao;
 import com.example.onlinetutoringsystem.Data.UserDao;
 import com.example.onlinetutoringsystem.Data.UserDatabase;
 import com.example.onlinetutoringsystem.Model.Instructor;
 import com.example.onlinetutoringsystem.Model.User;
 import com.example.onlinetutoringsystem.R;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     EditText editTextEmail, editTextPassword;
@@ -43,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         db = dataBase.getUserDao();
-        Addinstructors();
+        AddData();
         textViewRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void Addinstructors() {
+    private void AddData() {
         InstructorDao instructorDao = dataBase.getIntructorDao();
         if (!(instructorDao.getInstructorList().size() > 0)) {
             instructorDao.insertInstructor(new Instructor("Alan Taylor", "Film Scoring", 20.0));

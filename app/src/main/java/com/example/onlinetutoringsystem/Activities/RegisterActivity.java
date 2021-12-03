@@ -1,8 +1,5 @@
 package com.example.onlinetutoringsystem.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,11 +9,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class RegisterActivity extends AppCompatActivity implements ObservationView{
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
+
+import com.example.onlinetutoringsystem.Data.ObservationView;
+import com.example.onlinetutoringsystem.Data.UserDao;
+import com.example.onlinetutoringsystem.Data.UserDatabase;
+import com.example.onlinetutoringsystem.Model.User;
+import com.example.onlinetutoringsystem.R;
+import com.example.onlinetutoringsystem.Service;
+
+public class RegisterActivity extends AppCompatActivity implements ObservationView {
     EditText editTextUsername, editTextEmail, editTextPassword, editTextCnfPassword;
     Button buttonRegister;
     TextView textViewLogin;
-    private UserDAO userDao;
+    private UserDao userDao;
     Service service;
     String errormessage;
 
@@ -44,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity implements ObservationVi
                 .allowMainThreadQueries()
                 .build().getUserDao();
 
-        service = new Service(this,userDao);
+        service = new com.example.onlinetutoringsystem.Service(this,userDao);
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override

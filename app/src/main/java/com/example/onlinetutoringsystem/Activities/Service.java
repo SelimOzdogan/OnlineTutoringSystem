@@ -1,13 +1,13 @@
-package com.example.testingforregister_login;
+package com.example.onlinetutoringsystem;
 
-import android.content.Context;
-import android.widget.Toast;
+import com.example.onlinetutoringsystem.Data.ObservationView;
+import com.example.onlinetutoringsystem.Data.UserDao;
 
 public class Service {
     String errormessage;
-    UserDAO userDao;
+    UserDao userDao;
     ObservationView view;
-    public Service(ObservationView view, UserDAO userDao)
+    public Service(ObservationView view, UserDao userDao)
     {
         this.view = view;
         this.userDao = userDao;
