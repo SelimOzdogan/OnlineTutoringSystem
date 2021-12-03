@@ -1,6 +1,5 @@
 package com.example.onlinetutoringsystem.Data;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -16,6 +15,9 @@ public interface InstructorDao {
     @Query("SELECT * FROM Instructor")
     List<Instructor> getInstructorList();
 
+    @Query("SELECT * FROM Instructor Where instructorName LIKE :key or instructorMajor LIKE :key")
+    List<Instructor> searchInstructor(String key);
+
     @Query("SELECT * FROM Instructor Where id = :id")
     Instructor getInstructor(int id);
     @Insert
@@ -26,5 +28,6 @@ public interface InstructorDao {
     void deleteInstructor(Instructor instructor);
     @Query("DELETE FROM Instructor")
     void deleteAll();
+
 
 }
