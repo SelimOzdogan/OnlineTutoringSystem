@@ -24,7 +24,7 @@ public class FinishActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent i = new Intent(FinishActivity.this, HomeActivity.class);
+                Intent i = new Intent(FinishActivity.this, TransactionActivity.class);
                 i.putExtra("User", user);
                 startActivity(i);
                 finish();

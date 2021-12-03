@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverter;
+import androidx.room.TypeConverters;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity()
 public class Transaction implements Serializable {
@@ -16,11 +19,22 @@ public class Transaction implements Serializable {
     private String userId;
     private int instructorId;
     private Double amount;
+    @TypeConverters(DateConverter.class)
+    private Date date;
 
-    public Transaction(String userId, int instructorId, Double amount) {
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Transaction(String userId, int instructorId, Double amount, Date date) {
         this.userId = userId;
         this.instructorId = instructorId;
         this.amount = amount;
+        this.date = date;
     }
 
     public int getId() {
@@ -54,4 +68,19 @@ public class Transaction implements Serializable {
     public void setAmount(Double amount) {
         this.amount = amount;
     }
+
+    public static class DateConverter {
+
+        @TypeConverter
+        public static Date toDate(Long timestamp) {
+            return timestamp == null ? null : new Date(timestamp);
+        }
+
+        @TypeConverter
+        public static Long toTimestamp(Date date) {
+            return date == null ? null : date.getTime();
+        }
+    }
 }
+
+

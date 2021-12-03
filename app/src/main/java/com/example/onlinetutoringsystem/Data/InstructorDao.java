@@ -15,6 +15,9 @@ import java.util.List;
 public interface InstructorDao {
     @Query("SELECT * FROM Instructor")
     List<Instructor> getInstructorList();
+
+    @Query("SELECT * FROM Instructor Where id = :id")
+    Instructor getInstructor(int id);
     @Insert
     void insertInstructor(Instructor instructor);
     @Update

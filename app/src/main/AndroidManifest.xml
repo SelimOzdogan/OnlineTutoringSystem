@@ -36,6 +36,9 @@
             android:name=".Activities.HomeActivity"
             android:exported="false" />
         <activity
+            android:name=".Activities.TransactionActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.MainActivity"
             android:exported="true">
             <intent-filter>

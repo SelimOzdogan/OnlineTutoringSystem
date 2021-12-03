@@ -64,9 +64,10 @@ public class PaymentActivity extends AppCompatActivity {
         textViewPaymentDateTime.setText(getDateInfo(coursedatetime));
         textViewPaymentDetails.setText(getPaymentDetail(price, commission));
 
+        Date finalCoursedatetime = coursedatetime;
         btnPaymentPay.setOnClickListener((View view) -> {
             if (checkBoxPaymentAgree.isChecked()) {
-                Transaction transaction = new Transaction(String.valueOf(user.getId()), instructor.getId(), total);
+                Transaction transaction = new Transaction(String.valueOf(user.getId()), instructor.getId(), total, finalCoursedatetime);
                 transactionDao.insert(transaction);
                 Toast.makeText(PaymentActivity.this,
                         "Payment is successfull", Toast.LENGTH_SHORT).show();
@@ -101,9 +102,9 @@ public class PaymentActivity extends AppCompatActivity {
         StringBuilder outputText = new StringBuilder();
         outputText.append(String.format("%-40s\n", "Booking Details"));
         outputText.append(String.format("%-40s\n", ""));
-        outputText.append(String.format("%s %s\n","Instructor:",instructor.getInstructorName()));
-        outputText.append(String.format("%s %s\n", "Schedule date:",dateTimeFormatter.format(coursedatetime)));
-        outputText.append(String.format("%s %s\n", "Major:",instructor.getInstructorMajor()));
+        outputText.append(String.format("%s %s\n", "Instructor:", instructor.getInstructorName()));
+        outputText.append(String.format("%s %s\n", "Schedule date:", dateTimeFormatter.format(coursedatetime)));
+        outputText.append(String.format("%s %s\n", "Major:", instructor.getInstructorMajor()));
 
         return outputText.toString();
     }
