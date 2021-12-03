@@ -36,7 +36,7 @@ public class PaymentActivity extends AppCompatActivity {
         UserDatabase db = Room.databaseBuilder(this, UserDatabase.class, "mi-database.db")
                 .allowMainThreadQueries()
                 .build();
-        TransactionDao transactionDao = db.gettransactionDao();
+        TransactionDao transactionDao = db.getTransactionDao();
 
         User user = (User) getIntent().getSerializableExtra("User");
         instructor = (Instructor) getIntent().getSerializableExtra("Instructor");
@@ -66,7 +66,7 @@ public class PaymentActivity extends AppCompatActivity {
 
         btnPaymentPay.setOnClickListener((View view) -> {
             if (checkBoxPaymentAgree.isChecked()) {
-                Transaction transaction = new Transaction(String.valueOf(user.getId()), instructor.getInstructorId(), total);
+                Transaction transaction = new Transaction(String.valueOf(user.getId()), instructor.getId(), total);
                 transactionDao.insert(transaction);
                 Toast.makeText(PaymentActivity.this,
                         "Payment is successfull", Toast.LENGTH_SHORT).show();

@@ -10,7 +10,7 @@ import java.util.List;
 
 @Dao
 public interface TransactionDao {
-    @Query("SELECT * FROM `Transaction` WHERE userid = :UserId")
+    @Query("SELECT * FROM 'Transaction' WHERE userid = :UserId")
     List<Transaction> getTransactions(String UserId);
 
     @Insert()

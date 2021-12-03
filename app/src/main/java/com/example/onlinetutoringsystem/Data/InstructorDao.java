@@ -14,7 +14,7 @@ import java.util.List;
 @Dao
 public interface InstructorDao {
     @Query("SELECT * FROM Instructor")
-    LiveData<List<Instructor>> getInstructorList();
+    List<Instructor> getInstructorList();
     @Insert
     void insertInstructor(Instructor instructor);
     @Update

@@ -12,16 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.onlinetutoringsystem.Model.Instructor;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
-    private ArrayList<Instructor> instructors;
+    private List<Instructor> instructors;
     private RecyclerViewClickListener listener;
 
     private int[] images = {R.drawable.android_image_1, R.drawable.android_image_2,
             R.drawable.android_image_3, R.drawable.android_image_4, R.drawable.android_image_5,
             R.drawable.android_image_6, R.drawable.android_image_7, R.drawable.android_image_8};
 
-    public RecyclerAdapter(ArrayList<Instructor> instructors, RecyclerViewClickListener listener) {
+    public RecyclerAdapter(List<Instructor> instructors, RecyclerViewClickListener listener) {
         this.instructors = instructors;
         this.listener = listener;
     }

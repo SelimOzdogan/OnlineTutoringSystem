@@ -1,16 +1,22 @@
 package com.example.onlinetutoringsystem.Model;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.io.Serializable;
 
+@Entity()
 public class Instructor implements Serializable {
 
-    private String instructorId;
+    @PrimaryKey(autoGenerate = true)
+    @NonNull
+    private int id;
     private String instructorName;
     private String instructorMajor;
     private Double price;
 
-    public Instructor(String instructorId, String instructorName, String instructorMajor, Double price) {
-        this.instructorId = instructorId;
+    public Instructor( String instructorName, String instructorMajor, Double price) {
         this.instructorName = instructorName;
         this.instructorMajor = instructorMajor;
         this.price = price;
@@ -24,12 +30,12 @@ public class Instructor implements Serializable {
         this.price = price;
     }
 
-    public String getInstructorId() {
-        return instructorId;
+    public int getId() {
+        return id;
     }
 
-    public void setInstructorId(String instructorId) {
-        this.instructorId = instructorId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getInstructorName() {

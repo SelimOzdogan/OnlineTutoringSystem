@@ -14,12 +14,12 @@ public class Transaction implements Serializable {
     @NonNull
     private int id;
     private String userId;
-    private String courseId;
+    private int instructorId;
     private Double amount;
 
-    public Transaction(String userId, String courseId, Double amount) {
+    public Transaction(String userId, int instructorId, Double amount) {
         this.userId = userId;
-        this.courseId = courseId;
+        this.instructorId = instructorId;
         this.amount = amount;
     }
 
@@ -39,12 +39,12 @@ public class Transaction implements Serializable {
         this.userId = userId;
     }
 
-    public String getCourseId() {
-        return courseId;
+    public int getInstructorId() {
+        return instructorId;
     }
 
-    public void setCourseId(String courseId) {
-        this.courseId = courseId;
+    public void setInstructorId(int instructorId) {
+        this.instructorId = instructorId;
     }
 
     public Double getAmount() {
