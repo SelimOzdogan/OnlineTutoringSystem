@@ -26,6 +26,7 @@ import com.example.onlinetutoringsystem.R;
 
 public class PaymentActivity extends AppCompatActivity {
     private static final Double COMMISSIONRATE = 0.2;
+    Instructor instructor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,7 @@ public class PaymentActivity extends AppCompatActivity {
         TransactionDao transactionDao = db.gettransactionDao();
 
         User user = (User) getIntent().getSerializableExtra("User");
-        Instructor instructor = (Instructor) getIntent().getSerializableExtra("Instructor");
+        instructor = (Instructor) getIntent().getSerializableExtra("Instructor");
 //        String courseID = getIntent().getExtras().getString("COURSEID");
 
         Date coursedatetime = null;
@@ -85,21 +86,25 @@ public class PaymentActivity extends AppCompatActivity {
 
     private String getPaymentDetail(Double price, Double commission) {
         StringBuilder outputText = new StringBuilder();
-        outputText.append(String.format("%-30s%-20s\n", "Service details", "Price per hour"));
-        outputText.append(String.format("%-30s%15s\n", "1 hour lesson", decimalFormat.format(price)));
-        outputText.append(String.format("%-30s%15s\n", "Transaction fee", decimalFormat.format(commission)));
+        outputText.append(String.format("%-30s%20s\n", "Service details", "Price per hour"));
+        outputText.append(String.format("%-40s\n", ""));
+        outputText.append(String.format("%-30s%20s\n", "1 hour lesson", decimalFormat.format(price)));
+        outputText.append(String.format("%-30s%20s\n", "Transaction fee", decimalFormat.format(commission)));
         outputText.append("\n");
-        outputText.append(String.format("%-30s%15s\n", "Total", decimalFormat.format(price + commission)));
+        outputText.append(String.format("%-30s%29s\n", "Total", decimalFormat.format(price + commission)));
         return outputText.toString();
     }
 
-    SimpleDateFormat dateTimeFormatter = new SimpleDateFormat("E, MMM dd, yyyy hh:mma z");// 'GST' Z
+    SimpleDateFormat dateTimeFormatter = new SimpleDateFormat("E, MMM dd, yyyy hh:mma");// 'GST' Z
 
     private String getDateInfo(Date coursedatetime) {
         StringBuilder outputText = new StringBuilder();
-        outputText.append(String.format("%-40s\n", "Date and Time"));
-        outputText.append(dateTimeFormatter.format(coursedatetime));
-//        outputText.append(String.format("%-30s%15s\n", "Transaction fee", df.format((double) price * 0.02)));
+        outputText.append(String.format("%-40s\n", "Booking Details"));
+        outputText.append(String.format("%-40s\n", ""));
+        outputText.append(String.format("%s %s\n","Instructor:",instructor.getInstructorName()));
+        outputText.append(String.format("%s %s\n", "Schedule date:",dateTimeFormatter.format(coursedatetime)));
+        outputText.append(String.format("%s %s\n", "Major:",instructor.getInstructorMajor()));
+
         return outputText.toString();
     }
 }
