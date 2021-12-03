@@ -1,4 +1,5 @@
-package com.example.testingforregister_login;
+app/src/main/java/com/example/onlinetutoringsystem/Activities/RegisterActivity.java
+package com.example.onlinetutoringsystem.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
