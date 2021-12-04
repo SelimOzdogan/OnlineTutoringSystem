@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OnlineTutoringSystem</string>
+    <string name="app_name">Melodicious</string>
 
     <string name="txtWalletViewTitle">My Wallet</string>
     <string name="btnWalletDeposit">Deposit</string>

@@ -17,7 +17,7 @@ import com.example.onlinetutoringsystem.Data.UserDao;
 import com.example.onlinetutoringsystem.Data.UserDatabase;
 import com.example.onlinetutoringsystem.Model.User;
 import com.example.onlinetutoringsystem.R;
-import com.example.onlinetutoringsystem.Service;
+import com.example.onlinetutoringsystem.Activities.Service;
 
 public class RegisterActivity extends AppCompatActivity implements ObservationView {
     EditText editTextUsername, editTextEmail, editTextPassword, editTextCnfPassword;
@@ -51,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity implements ObservationVi
                 .allowMainThreadQueries()
                 .build().getUserDao();
 
-        service = new com.example.onlinetutoringsystem.Service(this,userDao);
+        service = new Service(this,userDao);
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,7 +135,7 @@ public class RegisterActivity extends AppCompatActivity implements ObservationVi
 
     @Override
     public String showNoRecordFound() {
-        errormessage = "Database is not empty";
+        errormessage = "No Record found";
         return errormessage;
     }
 }

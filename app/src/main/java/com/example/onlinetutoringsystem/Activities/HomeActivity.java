@@ -3,6 +3,7 @@ package com.example.onlinetutoringsystem.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.SearchView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +28,7 @@ public class HomeActivity extends AppCompatActivity {
     private RecyclerView instructors;
     private RecyclerView.Adapter adapter;
     private RecyclerAdapter.RecyclerViewClickListener listener;
+    private Button logoutBtn;
     SearchView searchView;
     User user;
     UserDatabase dataBase;
@@ -46,6 +48,16 @@ public class HomeActivity extends AppCompatActivity {
 
         searchView = findViewById(R.id.searchView);
         CharSequence query = searchView.getQuery();
+
+        logoutBtn = findViewById(R.id.buttonLoggout);
+
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(HomeActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         // perform set on query text listener event
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -101,4 +113,6 @@ public class HomeActivity extends AppCompatActivity {
             transactionDao.insert(new Transaction(String.valueOf(user.getId()), 6, 20.0, calc.getTime()));
         }
     }
+
+
 }

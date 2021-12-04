@@ -1,10 +1,9 @@
-package com.example.onlinetutoringsystem;
+package com.example.onlinetutoringsystem.Activities;
 
 import com.example.onlinetutoringsystem.Data.ObservationView;
 import com.example.onlinetutoringsystem.Data.UserDao;
 
 public class Service {
-    String errormessage;
     UserDao userDao;
     ObservationView view;
     public Service(ObservationView view, UserDao userDao)
