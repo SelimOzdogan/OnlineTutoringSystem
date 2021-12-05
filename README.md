@@ -23,9 +23,14 @@
   - File -> Settings
   - Select Plugins
   - Select Marketplace
-  - Search TestMe and Install it
+  - Search TestMe and Install it and restart Ide
   - Run the main method to run the tests
 - Start App
+  - Click Device (No Device)(Next to app)
+  - AVD Maneger unter the combobox
+  - Create Virtual Device
+  - Select Pixel 5 then install the emulator
+  - then Click run(play button)
   - The app should be shown on Emulator
   - On Emulator
     - Sign Up
