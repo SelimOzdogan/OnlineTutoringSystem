@@ -11,8 +11,8 @@
   - Version: 2020.3.1 for Windows 64-bit (914 MiB)
 - After Installation Android Studio
   - Open Android Studio
-  - Get from VCS 
-  - File -> New -> New Project from Version Control...
+  - Get from VCS  or File -> New -> New Project from Version Control...
+    -	Click install Git if there is a link on the screen
   -	Version Control: Git
   -	URL: https://github.com/SelimOzdogan/OnlineTutoringSystem/
   -	Clone
